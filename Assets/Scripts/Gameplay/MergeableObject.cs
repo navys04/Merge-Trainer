@@ -9,8 +9,8 @@ public class MergeableObject : DragAndDropable
     [SerializeField] private int _level;
     [SerializeField] private GameObject _nextLevelObject;
 
-    private MergeablePanel _parentPanel;
-    private MergeablePanel _hoveredPanel;
+    protected MergeablePanel _parentPanel;
+    protected MergeablePanel _hoveredPanel;
 
     protected bool _haveRaycast = false;
     protected RaycastHit _currentHit;
@@ -70,6 +70,7 @@ public class MergeableObject : DragAndDropable
         _hoveredPanel.ClearObject();
         _hoveredPanel.SetObject(mergeableObjectComponent);
 
+        MergeGameManager.Instance.AddMergesCount();
         Destroy(gameObject);
     }
 

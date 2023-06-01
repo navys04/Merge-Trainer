@@ -19,6 +19,7 @@ public class Unit : MergeableObject
     [SerializeField] private float _goldPrice;
     [SerializeField] private EUnitType _unitType;
     [SerializeField] private float _timePerResourceGeneration = 1.0f;
+    [SerializeField] private float Damage = 100.0f;
 
     private bool _needToGenerateResources = true;
 
@@ -42,6 +43,20 @@ public class Unit : MergeableObject
             if (_currentHit.collider.TryGetComponent(out SellPanel sellPanel))
             {
                 _sellPanel = sellPanel;
+            }
+            
+            else if (_currentHit.collider.TryGetComponent(out Enemy enemy))
+            {
+                bool needToBeDestroyed = false;
+
+                if (enemy.Health >= Damage) needToBeDestroyed = true;
+                
+                enemy.Damage(Damage);
+                if (needToBeDestroyed)
+                {
+                    _parentPanel.ClearObject();
+                    Destroy(this.gameObject);
+                }
             }
         }
     }
