@@ -7,6 +7,7 @@ public class SellPanel : MonoBehaviour
     public void Sell(Unit unit)
     {
         PlayerManager.Instance.AddGold(unit.GetGoldPrice());
+        MergeGameManager.Instance.OnUnitSold((int)unit.GetGoldPrice());
         
         unit.GetParentPanel().ClearObject();
         Destroy(unit.gameObject);
