@@ -24,6 +24,7 @@ public class Unit : MergeableObject
     private bool _needToGenerateResources = true;
 
     private SellPanel _sellPanel;
+    private Enemy _enemy;
 
     public float GetGoldPrice() => _goldPrice;
 
@@ -47,16 +48,7 @@ public class Unit : MergeableObject
             
             else if (_currentHit.collider.TryGetComponent(out Enemy enemy))
             {
-                bool needToBeDestroyed = false;
-
-                if (enemy.Health >= Damage) needToBeDestroyed = true;
-                
-                enemy.Damage(Damage);
-                if (needToBeDestroyed)
-                {
-                    _parentPanel.ClearObject();
-                    Destroy(this.gameObject);
-                }
+                _enemy = enemy;
             }
         }
     }
@@ -68,6 +60,25 @@ public class Unit : MergeableObject
         if (_sellPanel)
         {
             _sellPanel.Sell(this);
+        }
+
+        if (_enemy)
+        {
+            AttackEnemy();
+        }
+    }
+
+    private void AttackEnemy()
+    {
+        bool needToBeDestroyed = false;
+
+        if (_enemy.Health >= Damage) needToBeDestroyed = true;
+                
+        _enemy.Damage(Damage);
+        if (needToBeDestroyed)
+        {
+            _parentPanel.ClearObject();
+            Destroy(this.gameObject);
         }
     }
 
