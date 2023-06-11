@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public abstract class DragAndDropable : MonoBehaviour
 {
     [SerializeField] private float _upTransform = 5.0f;
+    [SerializeField] protected bool _isActiveForMerge = true;
     
     private bool _isDragging;
 
@@ -23,6 +24,8 @@ public abstract class DragAndDropable : MonoBehaviour
 
     private void Update()
     {
+        if (!_isActiveForMerge) return;
+        
         if (_isDragging) Drag();
 
         if (Input.GetMouseButtonUp(0) && _isDragging)

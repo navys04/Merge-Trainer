@@ -49,14 +49,14 @@ public class MergeableObject : DragAndDropable
         if (!_hoveredPanel)
         {
             newObjectPos = new Vector3(_parentPanel.transform.position.x,
-                _parentPanel.transform.position.y + 1, _parentPanel.transform.position.z);
+                _parentPanel.transform.position.y, _parentPanel.transform.position.z);
 
             transform.position = newObjectPos;
             return;
         }
 
         newObjectPos = new Vector3(_hoveredPanel.transform.position.x,
-            _hoveredPanel.transform.position.y + 1, _hoveredPanel.transform.position.z);
+            _hoveredPanel.transform.position.y, _hoveredPanel.transform.position.z);
         
         GameObject newObject = Instantiate(_nextLevelObject, newObjectPos,
             _hoveredPanel.transform.rotation, _hoveredPanel.transform);

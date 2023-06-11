@@ -22,7 +22,7 @@ public class SpawnerButton : MonoBehaviour
         
         Vector3 position = panel.transform.position;
         Vector3 newObjectPos = new Vector3(position.x,
-            position.y + 1, position.z);
+            position.y, position.z);
         
         GameObject newObject = Instantiate(_unitToSpawn, newObjectPos,
             panel.transform.rotation, panel.transform);

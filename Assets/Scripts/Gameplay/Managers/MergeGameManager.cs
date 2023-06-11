@@ -77,10 +77,19 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
 
     private void SpawnEnemy()
     {
+        PanelManager panelManager = PanelManager.Instance;
+        MergeablePanel mergeablePanel = panelManager.GetFreePanel();
+        
+        GameObject enemy = Instantiate(_enemyPrefab, mergeablePanel.transform.position,
+            mergeablePanel.transform.rotation);
+
+        MergeableObject mergeableObject = enemy.GetComponent<MergeableObject>();
+        mergeablePanel.SetObject(mergeableObject);
+        /**
         if (_enemySpawnPoints.Count == 0) return;
 
         int rand = Random.Range(0, _enemySpawnPoints.Count);
-        Instantiate(_enemyPrefab, _enemySpawnPoints[rand].transform.position,
-            _enemySpawnPoints[rand].transform.rotation);
+        
+            */ //DEPRECATED
     }
 }

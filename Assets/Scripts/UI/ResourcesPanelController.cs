@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourcesPanelController : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _foodText;
-    [SerializeField] private TextMeshProUGUI _feedText;
-    [SerializeField] private TextMeshProUGUI _woodText;
-    [SerializeField] private TextMeshProUGUI _goldText;
+    [SerializeField] private Text _foodText;
+    [SerializeField] private Text _feedText;
+    [SerializeField] private Text _woodText;
+    [SerializeField] private Text _goldText;
 
     private void OnEnable()
     {

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MissionPanel : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _missionText;
+    [SerializeField] private Text _missionText;
+    [SerializeField] private Image _fillImage;
     
     private void Start()
     {
@@ -18,6 +20,8 @@ public class MissionPanel : MonoBehaviour
         int curPointsToNewLevel = MergeGameManager.Instance.GetCurrentPointsToNewLevel();
         
         _missionText.text = curPoints + " / " + curPointsToNewLevel;
+
+        _fillImage.fillAmount = (float)curPoints / curPointsToNewLevel;
     }
     
     private void OnMissionUpdated(int points)
@@ -25,5 +29,6 @@ public class MissionPanel : MonoBehaviour
         int curPoints = MergeGameManager.Instance.GetCurrentPoints();
 
         _missionText.text = curPoints + " / " + points;
+        _fillImage.fillAmount = 0;
     }
 }
