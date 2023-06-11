@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class MergeGameManager : SingletonBase<MergeGameManager>
@@ -11,9 +12,13 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     
     [Header("Missions")]
     [SerializeField] private int _defaultPoints = 10;
-
     [SerializeField] private int _pointsToNewLevel = 40;
+    [SerializeField] private int _submissionUnitsCount = 3;
+    [SerializeField] private int _submissionUnitLevel = 1;
+    [SerializeField] private EUnitType _submissionUnitType;
 
+    private int _currentSubmissionUnitsCount;
+    
     private int _currentPoints;
     private int _currentPointsToNewLevel;
 
@@ -23,14 +28,34 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     
     public Action<int> OnMissionUpdated = delegate(int i) {  };
     public Action<int> OnPointsUpdated = delegate(int i) {  };
+    public Action<int, int, EUnitType> OnSubmissionUpdated = delegate(int i, int j, EUnitType type) {  };
 
     private void Start()
     {
         _currentPointsToNewLevel = _defaultPoints;
+        StartSubmission();
     }
-
+    
     public int GetCurrentPoints() => _currentPoints;
     public int GetCurrentPointsToNewLevel() => _currentPointsToNewLevel;
+
+    public void StartSubmission()
+    {
+        _submissionUnitsCount = Random.Range(1, 5);
+        _submissionUnitLevel = Random.Range(1, 3);
+        _submissionUnitType = (EUnitType)Random.Range(0, 2);
+        OnSubmissionUpdated?.Invoke(_submissionUnitsCount, _submissionUnitLevel, _submissionUnitType);
+    }
+
+    private void CheckCanStartNewSubmission()
+    {
+        if (_currentSubmissionUnitsCount == _submissionUnitsCount)
+        {
+            StartSubmission();
+            _currentSubmissionUnitsCount = 0;
+            return;
+        }
+    }
     
     public void StartMission()
     {
@@ -43,11 +68,18 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     {
         if (_currentPoints >= _currentPointsToNewLevel) StartMission();
     }
-    
-    public void OnUnitSold(int price)
+
+    public void OnUnitSold(int price, Unit unit)
     {
         _currentPoints += price;
         CheckCanStartNewMission();
+
+        if (unit.GetLevel() == _submissionUnitLevel && unit.GetUnitType() == _submissionUnitType)
+        {
+            _currentSubmissionUnitsCount++;
+            CheckCanStartNewSubmission();
+        }
+
         OnPointsUpdated?.Invoke(_currentPoints);
     }
     

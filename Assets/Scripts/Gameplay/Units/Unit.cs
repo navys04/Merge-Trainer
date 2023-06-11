@@ -27,6 +27,7 @@ public class Unit : MergeableObject
     private Enemy _enemy;
 
     public float GetGoldPrice() => _goldPrice;
+    public EUnitType GetUnitType() => _unitType;
 
     private void Start()
     {
