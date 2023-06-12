@@ -3225,6 +3225,7 @@ GameObject:
   - component: {fileID: 194607287}
   - component: {fileID: 194607289}
   - component: {fileID: 194607288}
+  - component: {fileID: 194607290}
   m_Layer: 5
   m_Name: CurrentSubquest
   m_TagString: Untagged
@@ -3293,6 +3294,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194607286}
   m_CullTransparentMesh: 0
+--- !u!114 &194607290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194607286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ced73e3b32c790419ff407ec2e3bae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitText: {fileID: 775988654}
+  _unitCountText: {fileID: 1747831462}
+  _unitImage: {fileID: 1859326204}
 --- !u!1 &196228922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,6 +3590,7 @@ GameObject:
   - component: {fileID: 214640715}
   - component: {fileID: 214640717}
   - component: {fileID: 214640716}
+  - component: {fileID: 214640718}
   m_Layer: 5
   m_Name: UserProgress
   m_TagString: Untagged
@@ -3641,6 +3658,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214640714}
   m_CullTransparentMesh: 0
+--- !u!114 &214640718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214640714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74e4cc1a84c2dd408d2e76f0181dffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _missionText: {fileID: 823075210}
+  _fillImage: {fileID: 274404756}
 --- !u!1 &217961296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,7 +4751,7 @@ GameObject:
   - component: {fileID: 274404757}
   - component: {fileID: 274404756}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: UserProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13013,7 +13044,7 @@ GameObject:
   - component: {fileID: 823075210}
   - component: {fileID: 823075209}
   m_Layer: 5
-  m_Name: Text_ResourceAmount
+  m_Name: UserProgressText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31200,6 +31231,9 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 7770133914183311872, guid: f70f13248be26f44fa50dbb668214afd, type: 3}
   _defaultPoints: 10
   _pointsToNewLevel: 40
+  _submissionUnitsCount: 3
+  _submissionUnitLevel: 1
+  _submissionUnitType: 0
 --- !u!1 &1929651052
 GameObject:
   m_ObjectHideFlags: 0
@@ -42622,7 +42656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7659888505398797233
 RectTransform:
   m_ObjectHideFlags: 0
