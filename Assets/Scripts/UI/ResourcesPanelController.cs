@@ -8,6 +8,7 @@ public class ResourcesPanelController : MonoBehaviour
     [SerializeField] private Text _feedText;
     [SerializeField] private Text _woodText;
     [SerializeField] private Text _goldText;
+    [SerializeField] private Text _diamondsText;
 
     private void OnEnable()
     {
@@ -16,25 +17,31 @@ public class ResourcesPanelController : MonoBehaviour
         playerManager.OnFeedChanged += OnFeedChanged;
         playerManager.OnWoodChanged += OnWoodChanged;
         playerManager.OnGoldChanged += OnGoldChanged;
+        playerManager.OnDiamondsChanged += OnDiamondsChanged;
     }
 
     private void OnFoodChanged(float value)
     {
-        _foodText.text = "food : " + value;
+        _foodText.text = value.ToString();
     }
     
     private void OnFeedChanged(float value)
     {
-        _feedText.text = "feed : " + value;
+        _feedText.text = value.ToString();
     }
     
     private void OnWoodChanged(float value)
     {
-        _woodText.text = "wood : " + value;
+        _woodText.text = value.ToString();
     }
     
     private void OnGoldChanged(float value)
     {
-        _goldText.text = "gold : " + value;
+        _goldText.text = value.ToString();
+    }
+
+    private void OnDiamondsChanged(float value)
+    {
+        _diamondsText.text = value.ToString();
     }
 }

@@ -10,15 +10,18 @@ public class PlayerManager : SingletonBase<PlayerManager>
     private float _feed = 0;
     private float _wood = 0;
     private float _gold = 0;
+    private float _diamonds = 0;
 
     public Action<float> OnFoodChanged = delegate(float f) {  };
     public Action<float> OnFeedChanged = delegate(float f) {  };
     public Action<float> OnWoodChanged = delegate(float f) {  };
     public Action<float> OnGoldChanged = delegate(float f) {  };
+    public Action<float> OnDiamondsChanged = delegate(float f) {  };
 
     public float GetFood() => _food;
     public float GetFeed() => _feed;
     public float GetWood() => _wood;
+    public float GetDiamonds() => _diamonds;
     
     // As parameter returns new food value
     public float AddFood(float value)
@@ -53,6 +56,14 @@ public class PlayerManager : SingletonBase<PlayerManager>
         return _gold;
     }
     
+    // As parameter returns new diamonds value
+    public float AddDiamonds(float value)
+    {
+        _diamonds += value;
+        OnDiamondsChanged?.Invoke(_diamonds);
+        return _diamonds;
+    }
+    
     // As parameter returns new food value
     public float TakeFood(float value)
     {
@@ -83,5 +94,13 @@ public class PlayerManager : SingletonBase<PlayerManager>
         _gold -= value;
         OnGoldChanged?.Invoke(_gold);
         return _gold;
+    }
+    
+    // As parameter returns new diamonds value
+    public float TakeDiamonds(float value)
+    {
+        _diamonds -= value;
+        OnDiamondsChanged?.Invoke(_diamonds);
+        return _diamonds;
     }
 }

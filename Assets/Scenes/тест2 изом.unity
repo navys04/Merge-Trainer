@@ -1326,6 +1326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitToSpawn: {fileID: 4653312324221399557, guid: a9905510cf6edaf48864c9a2421568a1, type: 3}
+  _levelToOpen: 1
+  _buttonLockedSprite: {fileID: 21300000, guid: 7fb1749bc4bed4422a977bfdf3212dd3, type: 3}
+  _buttonUnlockedSprite: {fileID: 21300000, guid: c06cfb1e7670b4c5aab444df933905b7, type: 3}
+  _iconImage: {fileID: 1776060802}
 --- !u!1 &71689034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,6 +3675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _missionText: {fileID: 823075210}
+  _levelText: {fileID: 1769069088}
   _fillImage: {fileID: 274404756}
 --- !u!1 &217961296
 GameObject:
@@ -31234,6 +31239,7 @@ MonoBehaviour:
   _submissionUnitsCount: 3
   _submissionUnitLevel: 1
   _submissionUnitType: 0
+  _percentRewardForFinishQuest: 0.03
 --- !u!1 &1929651052
 GameObject:
   m_ObjectHideFlags: 0
@@ -42656,7 +42662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7659888505398797233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44425,7 +44431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 0
 --- !u!222 &9072533415309859815
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -44664,6 +44670,7 @@ MonoBehaviour:
   _feedText: {fileID: 9072533415309859814}
   _woodText: {fileID: 9072533416760695456}
   _goldText: {fileID: 9072533416757499538}
+  _diamondsText: {fileID: 9072533416381175607}
 --- !u!224 &9072533415628736756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45207,6 +45214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitToSpawn: {fileID: 5959839050860974650, guid: 0941158430ed49746b0de9976f275b87, type: 3}
+  _levelToOpen: 5
+  _buttonLockedSprite: {fileID: 21300000, guid: 7fb1749bc4bed4422a977bfdf3212dd3, type: 3}
+  _buttonUnlockedSprite: {fileID: 21300000, guid: 9e437affcd7a54609bf2cf705324a1de, type: 3}
+  _iconImage: {fileID: 9072533415320947849}
 --- !u!224 &9072533416071466852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45568,7 +45579,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 0
 --- !u!222 &9072533416342017999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45672,7 +45683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 150
+  m_Text: 0
 --- !u!1 &9072533416442457284
 GameObject:
   m_ObjectHideFlags: 0
@@ -46092,7 +46103,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 25
+  m_Text: 0
 --- !u!222 &9072533416757499539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46188,7 +46199,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 0
 --- !u!222 &9072533416760695457
 CanvasRenderer:
   m_ObjectHideFlags: 0

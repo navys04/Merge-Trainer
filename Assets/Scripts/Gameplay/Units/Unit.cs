@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -51,6 +52,14 @@ public class Unit : MergeableObject
             {
                 _enemy = enemy;
             }
+            
+            else if (_sellPanel || _enemy)
+            {
+                _sellPanel = null;
+                _enemy = null;
+            
+                print("cleared object");
+            }
         }
     }
 
@@ -92,6 +101,14 @@ public class Unit : MergeableObject
             playerManager.AddFood(_foodPerTick);
             playerManager.AddFeed(_feedPerTick);
             playerManager.AddWood(_woodPerTick);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.TryGetComponent(out Unit unit))
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
         }
     }
 }

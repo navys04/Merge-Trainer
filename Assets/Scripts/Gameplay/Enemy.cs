@@ -7,6 +7,8 @@ public class Enemy : MergeableObject, IDamageable
 {
     public float Health { get; set; }
 
+    [SerializeField] private float _diamondsToAdd = 14;
+
     private void Start()
     {
         _isActiveForMerge = false;
@@ -19,6 +21,7 @@ public class Enemy : MergeableObject, IDamageable
         if (Health <= 0.0f)
         {
             _parentPanel.ClearObject();
+            PlayerManager.Instance.AddDiamonds(_diamondsToAdd);
             Destroy(gameObject);
         }
     }

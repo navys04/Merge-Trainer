@@ -12012,6 +12012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upTransform: 3
+  _isActiveForMerge: 1
   _level: 1
   _nextLevelObject: {fileID: 5250159195905394221, guid: 6ded48b3b85a88445a154d8ba63b489c, type: 3}
   _foodPerTick: 3

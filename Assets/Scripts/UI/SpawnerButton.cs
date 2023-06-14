@@ -7,17 +7,56 @@ using UnityEngine.UI;
 public class SpawnerButton : MonoBehaviour
 {
     [SerializeField] private GameObject _unitToSpawn;
+    [SerializeField] private int _levelToOpen = 1;
+
+    [SerializeField] private Sprite _buttonLockedSprite;
+    [SerializeField] private Sprite _buttonUnlockedSprite;
+
+    [SerializeField] private Image _iconImage;
     
+    private Button _button;
+
+    private bool _isUnlocked;
+
+    
+
     private void Start()
     {
-        GetComponent<Button>().onClick.AddListener(SpawnUnit);
+        _button = GetComponent<Button>();
+        _button.onClick.AddListener(SpawnUnit);
+        
+        MergeGameManager.Instance.OnLevelUpdated += OnLevelUpdated;
+
+        ChangeButtonState(_levelToOpen == 1);
     }
 
+    private void ChangeButtonState(bool unlocked)
+    {
+        Sprite image = unlocked ? _buttonUnlockedSprite : _buttonLockedSprite;
+        
+        _iconImage.sprite = image;
+        _isUnlocked = unlocked;
+        _button.interactable = _isUnlocked;
+    }
+
+    private void OnLevelUpdated(int level)
+    {
+        if (_isUnlocked) return;
+
+        if (level >= _levelToOpen)
+        {
+            ChangeButtonState(true);
+        }
+    }
+    
     private void SpawnUnit()
     {
-        if (!_unitToSpawn) return;
+        if (!_unitToSpawn || !_isUnlocked) return;
 
-        MergeablePanel panel = PanelManager.Instance.GetFreePanel();
+        List<MergeablePanel> panels = PanelManager.Instance.GetFreePanels();
+        if (panels.Count == 0) return;
+        
+        MergeablePanel panel = panels[Random.Range(0, panels.Count)];
         if (!panel) return;
         
         Vector3 position = panel.transform.position;

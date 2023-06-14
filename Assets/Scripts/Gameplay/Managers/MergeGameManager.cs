@@ -13,9 +13,14 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     [Header("Missions")]
     [SerializeField] private int _defaultPoints = 10;
     [SerializeField] private int _pointsToNewLevel = 40;
+    private int _currentLevel = 1;
+    
+    [Header("Submissions")]
     [SerializeField] private int _submissionUnitsCount = 3;
     [SerializeField] private int _submissionUnitLevel = 1;
     [SerializeField] private EUnitType _submissionUnitType;
+    [SerializeField] private float _percentRewardForFinishQuest = 0.03f;
+    
 
     private int _currentSubmissionUnitsCount;
     
@@ -27,6 +32,7 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     private int _mergesCount;
     
     public Action<int> OnMissionUpdated = delegate(int i) {  };
+    public Action<int> OnLevelUpdated = delegate(int i) {  };
     public Action<int> OnPointsUpdated = delegate(int i) {  };
     public Action<int, int, EUnitType> OnSubmissionUpdated = delegate(int i, int j, EUnitType type) {  };
 
@@ -53,6 +59,8 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
         {
             StartSubmission();
             _currentSubmissionUnitsCount = 0;
+            _currentPoints += (int)(_currentPoints * _percentRewardForFinishQuest);
+            OnPointsUpdated?.Invoke(_currentPoints);
             return;
         }
     }
@@ -61,6 +69,8 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     {
         _currentPointsToNewLevel += _pointsToNewLevel;
         _pointsToNewLevel += 10;
+        _currentLevel++;
+        OnLevelUpdated?.Invoke(_currentLevel);
         OnMissionUpdated?.Invoke(_currentPointsToNewLevel);
     }
 

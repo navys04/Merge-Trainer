@@ -7,14 +7,23 @@ using UnityEngine.UI;
 public class MissionPanel : MonoBehaviour
 {
     [SerializeField] private Text _missionText;
+    [SerializeField] private Text _levelText;
     [SerializeField] private Image _fillImage;
     
     private void Start()
     {
-        MergeGameManager.Instance.OnMissionUpdated += OnMissionUpdated;
-        MergeGameManager.Instance.OnPointsUpdated += OnPointsUpdated;
+        MergeGameManager mergeGameManager = MergeGameManager.Instance;
+        
+        mergeGameManager.OnMissionUpdated += OnMissionUpdated;
+        mergeGameManager.OnPointsUpdated += OnPointsUpdated;
+        mergeGameManager.OnLevelUpdated += OnLevelUpdated;
     }
 
+    private void OnLevelUpdated(int value)
+    {
+        _levelText.text = value.ToString();
+    }
+    
     private void OnPointsUpdated(int curPoints)
     {
         int curPointsToNewLevel = MergeGameManager.Instance.GetCurrentPointsToNewLevel();

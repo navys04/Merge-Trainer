@@ -24,4 +24,16 @@ public class PanelManager : SingletonBase<PanelManager>
 
         return null;
     }
+
+    public List<MergeablePanel> GetFreePanels()
+    {
+        List<MergeablePanel> mergeablePanels = new List<MergeablePanel>();
+        
+        foreach (var panel in _panels)
+        {
+            if (panel.IsPanelFree()) mergeablePanels.Add(panel);
+        }
+
+        return mergeablePanels;
+    }
 }
