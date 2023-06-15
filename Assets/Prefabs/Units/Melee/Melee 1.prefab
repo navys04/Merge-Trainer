@@ -11910,7 +11910,7 @@ Transform:
   m_GameObject: {fileID: 4653312324221399557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.6908002, y: -0.03, z: 7.0084004}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4653312324221546631}
@@ -12011,16 +12011,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upTransform: 3
+  _upTransform: 2.5
   _isActiveForMerge: 1
   _level: 1
   _nextLevelObject: {fileID: 5250159195905394221, guid: 6ded48b3b85a88445a154d8ba63b489c, type: 3}
-  _foodPerTick: 3
-  _feedPerTick: 3
-  _woodPerTick: 3
-  _goldPrice: 10
+  _foodPerTick: 1
+  _feedPerTick: 0
+  _woodPerTick: 0
+  _goldPrice: 2
   _unitType: 0
-  _timePerResourceGeneration: 1
+  _timePerResourceGeneration: 10
   Damage: 10
 --- !u!65 &-1242215808024981710
 BoxCollider:

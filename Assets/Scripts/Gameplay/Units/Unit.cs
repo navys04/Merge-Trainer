@@ -5,8 +5,7 @@ using UnityEngine;
 public enum EUnitType
 {
     Soldier,
-    Horseman,
-    SiegeWeapon
+    Archer
 }
 
 public class Unit : MergeableObject

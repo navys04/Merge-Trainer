@@ -5265,6 +5265,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3080586891814881848}
   - component: {fileID: 3080586891822536258}
+  - component: {fileID: -2588398779815201460}
+  - component: {fileID: 1753256333717551911}
   m_Layer: 0
   m_Name: Melee 5
   m_TagString: Untagged
@@ -5281,7 +5283,7 @@ Transform:
   m_GameObject: {fileID: 3080586891815112582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.3812995, y: 0.01, z: 6.9184003}
-  m_LocalScale: {x: 1.1442559, y: 1.1138136, z: 1}
+  m_LocalScale: {x: 2.6, y: 2.6, z: 2.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3080586891814794944}
@@ -5370,6 +5372,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2588398779815201460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080586891815112582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upTransform: 2.5
+  _isActiveForMerge: 1
+  _level: 5
+  _nextLevelObject: {fileID: 3080586891815112582}
+  _foodPerTick: 8
+  _feedPerTick: 0
+  _woodPerTick: 0
+  _goldPrice: 70
+  _unitType: 0
+  _timePerResourceGeneration: 10
+  Damage: 280
+--- !u!65 &1753256333717551911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080586891815112582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.1635315, z: 1}
+  m_Center: {x: 0, y: 0.5817661, z: 0}
 --- !u!1 &3080586891815113840
 GameObject:
   m_ObjectHideFlags: 0

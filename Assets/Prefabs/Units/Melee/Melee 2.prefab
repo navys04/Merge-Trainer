@@ -2287,16 +2287,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upTransform: 3
+  _upTransform: 2.5
+  _isActiveForMerge: 1
   _level: 2
   _nextLevelObject: {fileID: 8658681799147877924, guid: 0631c7e98e510e146a22cca66771bb84, type: 3}
-  _foodPerTick: 3
-  _feedPerTick: 3
-  _woodPerTick: 3
-  _goldPrice: 10
+  _foodPerTick: 2
+  _feedPerTick: 0
+  _woodPerTick: 0
+  _goldPrice: 5
   _unitType: 0
-  _timePerResourceGeneration: 1
-  Damage: 20
+  _timePerResourceGeneration: 10
+  Damage: 25
 --- !u!65 &4522601275490865014
 BoxCollider:
   m_ObjectHideFlags: 0

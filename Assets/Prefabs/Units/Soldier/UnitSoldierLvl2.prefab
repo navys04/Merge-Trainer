@@ -10704,6 +10704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upTransform: 1
+  _isActiveForMerge: 1
   _level: 2
   _nextLevelObject: {fileID: 2014563373153940645}
   _foodPerTick: 3
@@ -10712,6 +10713,7 @@ MonoBehaviour:
   _goldPrice: 5
   _unitType: 0
   _timePerResourceGeneration: 1
+  Damage: 100
 --- !u!65 &7632016309865659581
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9986,6 +9986,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8329788948986882423}
   - component: {fileID: 8329788948993874313}
+  - component: {fileID: -5940807684553445243}
+  - component: {fileID: -3075074554341516511}
   m_Layer: 0
   m_Name: Range 4
   m_TagString: Untagged
@@ -10002,7 +10004,7 @@ Transform:
   m_GameObject: {fileID: 8329788948986611647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.3604999, y: -0.004, z: 9.4435005}
-  m_LocalScale: {x: 0.78957814, y: 0.9872397, z: 1.1197765}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8329788948986966633}
@@ -10091,6 +10093,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5940807684553445243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329788948986611647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upTransform: 2.5
+  _isActiveForMerge: 1
+  _level: 4
+  _nextLevelObject: {fileID: 5415329549410298735, guid: bf52ffd4b172342479c15377dd5f2f27, type: 3}
+  _foodPerTick: 0
+  _feedPerTick: 0
+  _woodPerTick: 6
+  _goldPrice: 30
+  _unitType: 0
+  _timePerResourceGeneration: 10
+  Damage: 125
+--- !u!65 &-3075074554341516511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329788948986611647}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.1635315, z: 1}
+  m_Center: {x: 0, y: 0.5817661, z: 0}
 --- !u!1 &8329788948986611899
 GameObject:
   m_ObjectHideFlags: 0

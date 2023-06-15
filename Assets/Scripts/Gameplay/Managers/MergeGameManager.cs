@@ -48,7 +48,7 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     public void StartSubmission()
     {
         _submissionUnitsCount = Random.Range(1, 5);
-        _submissionUnitLevel = Random.Range(1, 3);
+        _submissionUnitLevel = Random.Range(1, 2);
         _submissionUnitType = (EUnitType)Random.Range(0, 2);
         OnSubmissionUpdated?.Invoke(_submissionUnitsCount, _submissionUnitLevel, _submissionUnitType);
     }

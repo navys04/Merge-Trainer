@@ -1950,7 +1950,7 @@ GameObject:
   - component: {fileID: 1708816435714310407}
   - component: {fileID: 1708816435721945605}
   - component: {fileID: 1708816435899225918}
-  - component: {fileID: 1708816435899225917}
+  - component: {fileID: -1045862956075749910}
   m_Layer: 0
   m_Name: UnitSoldierLvl1
   m_TagString: Untagged
@@ -2069,7 +2069,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1708816435899225917
+--- !u!114 &-1045862956075749910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2078,18 +2078,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1708816435714527945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a7293f3bacd135469e676947f21456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upTransform: 1
-  _level: 1
-  _nextLevelObject: {fileID: 2014563373153940645, guid: ef8e5b1379a8c924dbb7ce1cff620afc, type: 3}
-  _foodPerTick: 3
-  _feedPerTick: 3
-  _woodPerTick: 3
-  _goldPrice: 5
-  _unitType: 0
-  _timePerResourceGeneration: 1
+  _upTransform: 5
+  _isActiveForMerge: 0
+  _level: 0
+  _nextLevelObject: {fileID: 0}
+  _diamondsToAdd: 14
 --- !u!1 &1708816435714528377
 GameObject:
   m_ObjectHideFlags: 0
