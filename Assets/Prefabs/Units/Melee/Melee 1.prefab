@@ -12023,7 +12023,7 @@ MonoBehaviour:
   _timePerResourceGeneration: 10
   Damage: 10
   _woodCost: 0
-  _foodCost: 2
+  _foodCost: 10
   _feedCost: 0
 --- !u!65 &-1242215808024981710
 BoxCollider:
