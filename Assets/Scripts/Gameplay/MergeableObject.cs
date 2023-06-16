@@ -11,6 +11,7 @@ public class MergeableObject : DragAndDropable
 
     protected MergeablePanel _parentPanel;
     protected MergeablePanel _hoveredPanel;
+    protected MergeablePanel _freeHoveredPanel;
 
     protected bool _haveRaycast = false;
     protected RaycastHit _currentHit;
@@ -30,7 +31,11 @@ public class MergeableObject : DragAndDropable
             _currentHit = hit;
             if (hit.collider.TryGetComponent(out MergeablePanel panel))
             {
-                if (panel.IsPanelFree()) return;
+                if (panel.IsPanelFree())
+                {
+                    _freeHoveredPanel = panel;
+                    return;
+                }
                 if (panel.GetObject().GetLevel() != _level) return;
                 if (panel == _parentPanel) return;
 
@@ -48,6 +53,15 @@ public class MergeableObject : DragAndDropable
         
         if (!_hoveredPanel)
         {
+            if (_freeHoveredPanel)
+            {
+                newObjectPos = new Vector3(_freeHoveredPanel.transform.position.x,
+                    _freeHoveredPanel.transform.position.y, _freeHoveredPanel.transform.position.z);
+
+                transform.position = newObjectPos;
+                return;
+            }
+            
             newObjectPos = new Vector3(_parentPanel.transform.position.x,
                 _parentPanel.transform.position.y, _parentPanel.transform.position.z);
 

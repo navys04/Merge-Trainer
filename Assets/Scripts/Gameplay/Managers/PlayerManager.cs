@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerManager : SingletonBase<PlayerManager>
 {
-    private float _food = 0;
+    private float _food = 50;
     private float _feed = 0;
     private float _wood = 0;
     private float _gold = 0;

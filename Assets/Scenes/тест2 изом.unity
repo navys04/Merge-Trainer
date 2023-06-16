@@ -1330,6 +1330,7 @@ MonoBehaviour:
   _buttonLockedSprite: {fileID: 21300000, guid: 7fb1749bc4bed4422a977bfdf3212dd3, type: 3}
   _buttonUnlockedSprite: {fileID: 21300000, guid: c06cfb1e7670b4c5aab444df933905b7, type: 3}
   _iconImage: {fileID: 1776060802}
+  _unitTypeText: {fileID: 974340022}
 --- !u!1 &71689034
 GameObject:
   m_ObjectHideFlags: 0
@@ -45218,6 +45219,7 @@ MonoBehaviour:
   _buttonLockedSprite: {fileID: 21300000, guid: 7fb1749bc4bed4422a977bfdf3212dd3, type: 3}
   _buttonUnlockedSprite: {fileID: 21300000, guid: 54dc0b63b285f4aac9103e86d8d8e8bf, type: 3}
   _iconImage: {fileID: 9072533415320947849}
+  _unitTypeText: {fileID: 9072533414907198482}
 --- !u!224 &9072533416071466852
 RectTransform:
   m_ObjectHideFlags: 0

@@ -48,10 +48,11 @@ public abstract class DragAndDropable : MonoBehaviour
 
     protected virtual void Drag()
     {
+        LayerMask mask = LayerMask.GetMask("ZombiePanel");
         Ray castPoint = _mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, mask))
         {
             transform.position = new Vector3(hit.point.x, _yTransformInternal, hit.point.z);
         }

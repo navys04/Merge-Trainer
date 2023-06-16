@@ -12022,6 +12022,9 @@ MonoBehaviour:
   _unitType: 0
   _timePerResourceGeneration: 10
   Damage: 10
+  _woodCost: 0
+  _foodCost: 2
+  _feedCost: 0
 --- !u!65 &-1242215808024981710
 BoxCollider:
   m_ObjectHideFlags: 0

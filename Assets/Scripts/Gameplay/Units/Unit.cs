@@ -10,22 +10,33 @@ public enum EUnitType
 
 public class Unit : MergeableObject
 {
-    [Header("Resources per second")]
-    [SerializeField] private float _foodPerTick;
+    [Header("Resources per second")] [SerializeField]
+    private float _foodPerTick;
+
     [SerializeField] private float _feedPerTick;
     [SerializeField] private float _woodPerTick;
 
-    [Header("Unit settings")] 
-    [SerializeField] private float _goldPrice;
+    [Header("Unit settings")] [SerializeField]
+    private float _goldPrice;
+
     [SerializeField] private EUnitType _unitType;
     [SerializeField] private float _timePerResourceGeneration = 1.0f;
     [SerializeField] private float Damage = 100.0f;
+
+    [Header("Unit price")] 
+    [SerializeField] private float _woodCost;
+    [SerializeField] private float _foodCost;
+    [SerializeField] private float _feedCost;
 
     private bool _needToGenerateResources = true;
 
     private SellPanel _sellPanel;
     private Enemy _enemy;
 
+    public float GetWoodCost() => _woodCost;
+    public float GetFoodCost() => _foodCost;
+    public float GetFeedCost() => _feedCost;
+    
     public float GetGoldPrice() => _goldPrice;
     public EUnitType GetUnitType() => _unitType;
 

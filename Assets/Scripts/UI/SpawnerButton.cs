@@ -13,6 +13,7 @@ public class SpawnerButton : MonoBehaviour
     [SerializeField] private Sprite _buttonUnlockedSprite;
 
     [SerializeField] private Image _iconImage;
+    [SerializeField] private Text _unitTypeText;
     
     private Button _button;
 
@@ -38,6 +39,11 @@ public class SpawnerButton : MonoBehaviour
         _iconImage.sprite = image;
         _isUnlocked = unlocked;
         _button.interactable = _isUnlocked;
+
+        if (_isUnlocked)
+        {
+            _unitTypeText.text = _unitToSpawn.GetComponent<Unit>().GetUnitType().ToString();
+        }
     }
 
     private void OnLevelUpdated(int level)
@@ -49,16 +55,39 @@ public class SpawnerButton : MonoBehaviour
             ChangeButtonState(true);
         }
     }
+
+    private bool CheckUnitPrice()
+    {
+        Unit unit = _unitToSpawn.GetComponent<Unit>();
+
+        float foodCost = unit.GetFoodCost();
+        float feedCost = unit.GetFeedCost();
+        float woodCost = unit.GetWoodCost();
+
+        PlayerManager playerManager = PlayerManager.Instance;
+
+        return foodCost > playerManager.GetFood() || feedCost > playerManager.GetFeed() ||
+               woodCost > playerManager.GetWood();
+    }
     
     private void SpawnUnit()
     {
         if (!_unitToSpawn || !_isUnlocked) return;
+        
+        if (CheckUnitPrice()) return;
+
+        Unit unit = _unitToSpawn.GetComponent<Unit>();
 
         List<MergeablePanel> panels = PanelManager.Instance.GetFreePanels();
         if (panels.Count == 0) return;
         
         MergeablePanel panel = panels[Random.Range(0, panels.Count)];
         if (!panel) return;
+        
+        PlayerManager playerManager = PlayerManager.Instance;
+        playerManager.TakeFood(unit.GetFoodCost());
+        playerManager.TakeFeed(unit.GetFeedCost());
+        playerManager.TakeWood(unit.GetWoodCost());
         
         Vector3 position = panel.transform.position;
         Vector3 newObjectPos = new Vector3(position.x,
