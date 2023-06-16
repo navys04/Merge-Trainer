@@ -8,6 +8,7 @@ public class MergeableObject : DragAndDropable
     [Header("Mergeable Object Settings")]
     [SerializeField] private int _level;
     [SerializeField] private GameObject _nextLevelObject;
+    [SerializeField] private bool _isMaxLevel;
 
     protected MergeablePanel _parentPanel;
     protected MergeablePanel _hoveredPanel;
@@ -76,6 +77,9 @@ public class MergeableObject : DragAndDropable
 
         newObjectPos = new Vector3(_hoveredPanel.transform.position.x,
             _hoveredPanel.transform.position.y, _hoveredPanel.transform.position.z);
+        
+        if (!_nextLevelObject) return;
+        if (_isMaxLevel) return;
         
         GameObject newObject = Instantiate(_nextLevelObject, newObjectPos,
             _hoveredPanel.transform.rotation, _hoveredPanel.transform);

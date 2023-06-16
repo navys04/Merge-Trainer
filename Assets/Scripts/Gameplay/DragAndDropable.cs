@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public abstract class DragAndDropable : MonoBehaviour
 {
-    [SerializeField] private float _upTransform = 5.0f;
+    [SerializeField] private float _upTransform = 1.0f;
     [SerializeField] protected bool _isActiveForMerge = true;
     
     private bool _isDragging;
@@ -19,7 +19,7 @@ public abstract class DragAndDropable : MonoBehaviour
     protected void Start()
     {
         _mainCamera = Camera.main;
-        _yTransformInternal = transform.position.y + _upTransform;
+        _yTransformInternal = transform.position.y + 1 + _upTransform;
     }
 
     private void Update()

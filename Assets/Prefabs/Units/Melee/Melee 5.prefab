@@ -5384,10 +5384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upTransform: 2.5
+  _upTransform: 1
   _isActiveForMerge: 1
   _level: 5
   _nextLevelObject: {fileID: 3080586891815112582}
+  _isMaxLevel: 0
   _foodPerTick: 8
   _feedPerTick: 0
   _woodPerTick: 0
@@ -5395,6 +5396,9 @@ MonoBehaviour:
   _unitType: 0
   _timePerResourceGeneration: 10
   Damage: 280
+  _woodCost: 0
+  _foodCost: 0
+  _feedCost: 0
 --- !u!65 &1753256333717551911
 BoxCollider:
   m_ObjectHideFlags: 0

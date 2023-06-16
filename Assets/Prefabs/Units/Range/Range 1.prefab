@@ -12092,10 +12092,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9ed28bc6d81ce4c8128b227b874056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upTransform: 2.5
+  _upTransform: 1
   _isActiveForMerge: 1
   _level: 1
   _nextLevelObject: {fileID: 2764745711178793324, guid: 33021ba7dc9c16640802d745da4464f8, type: 3}
+  _isMaxLevel: 0
   _foodPerTick: 0
   _feedPerTick: 0
   _woodPerTick: 1
