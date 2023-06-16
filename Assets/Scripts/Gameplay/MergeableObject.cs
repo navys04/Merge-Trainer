@@ -59,6 +59,11 @@ public class MergeableObject : DragAndDropable
                     _freeHoveredPanel.transform.position.y, _freeHoveredPanel.transform.position.z);
 
                 transform.position = newObjectPos;
+                
+                if (_parentPanel) _parentPanel.ClearObject();
+                
+                _freeHoveredPanel.SetObject(this);
+                
                 return;
             }
             
