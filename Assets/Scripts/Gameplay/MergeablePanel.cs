@@ -20,8 +20,13 @@ public class MergeablePanel : MonoBehaviour
         _mergeableObjectInPanel = newMergeableObject;
         _mergeableObjectInPanel.SetParentPanel(this);
     }
-    
-    public void ClearObject() => _mergeableObjectInPanel = null;
+
+    public void ClearObject()
+    {
+        _mergeableObjectInPanel = null;
+        
+        PanelManager.Instance.OnObjectCleared(this);
+    }
     
     public bool IsPanelFree() => _mergeableObjectInPanel == null;
 }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "172525272587",
+    "project_id": "megre-army",
+    "storage_bucket": "megre-army.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172525272587:android:6e8fdfddd06bc60fde910e",
+        "android_client_info": {
+          "package_name": "com.DanilTurkin.Merge.Army.Battle.Quest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172525272587-ak34a64e1poi2l9tuc0disf7q9hgvim7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgpWdowgQWYfk6uIWk5oo2OnRdSZRRJ0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172525272587-ak34a64e1poi2l9tuc0disf7q9hgvim7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

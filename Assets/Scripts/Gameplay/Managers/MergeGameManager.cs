@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
@@ -38,14 +39,18 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
 
     private void Start()
     {
+        LoadManager();
+        
         _currentPointsToNewLevel = _defaultPoints;
         StartSubmission();
     }
     
     public int GetCurrentPoints() => _currentPoints;
     public int GetCurrentPointsToNewLevel() => _currentPointsToNewLevel;
+    public int GetCurrentSubmissionUnitsCount() => _currentSubmissionUnitsCount;
+    public int GetCurrentLevel() => _currentLevel;
 
-    public void StartSubmission()
+    private void StartSubmission()
     {
         _submissionUnitsCount = Random.Range(1, 5);
         _submissionUnitLevel = Random.Range(1, 2);
@@ -63,6 +68,8 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
             OnPointsUpdated?.Invoke(_currentPoints);
             return;
         }
+        
+        PlayerSave.Instance.Save();
     }
     
     public void StartMission()
@@ -77,6 +84,8 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
     private void CheckCanStartNewMission()
     {
         if (_currentPoints >= _currentPointsToNewLevel) StartMission();
+        
+        PlayerSave.Instance.Save();
     }
 
     public void OnUnitSold(int price, Unit unit)
@@ -133,5 +142,35 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
         int rand = Random.Range(0, _enemySpawnPoints.Count);
         
             */ //DEPRECATED
+    }
+
+    private void LoadManager()
+    {
+        print(Application.persistentDataPath);
+     
+        if (PlayerPrefs.HasKey(PlayerSave.CURRENT_POINTS_KEY))
+        {
+            _currentPoints = PlayerPrefs.GetInt(PlayerSave.CURRENT_POINTS_KEY);
+            print("_current points " + _currentPoints);
+            OnPointsUpdated?.Invoke(_currentPoints);
+        }
+
+        if (PlayerPrefs.HasKey(PlayerSave.CURRENT_POINTS_TO_NEW_LEVEL_KEY))
+        {
+            _currentPointsToNewLevel = PlayerPrefs.GetInt(PlayerSave.CURRENT_POINTS_TO_NEW_LEVEL_KEY);
+            print("_current points " + _currentPointsToNewLevel);
+            OnMissionUpdated?.Invoke(_currentPointsToNewLevel);
+        }
+
+        if (PlayerPrefs.HasKey(PlayerSave.CURRENT_SUBMISSION_UNITS_COUNT_KEY))
+        {
+            _currentSubmissionUnitsCount = PlayerPrefs.GetInt(PlayerSave.CURRENT_SUBMISSION_UNITS_COUNT_KEY);
+        }
+        
+        if (PlayerPrefs.HasKey(PlayerSave.LEVEL_KEY))
+        {
+            _currentLevel = PlayerPrefs.GetInt(PlayerSave.LEVEL_KEY);
+            OnLevelUpdated?.Invoke(_currentLevel);
+        }
     }
 }

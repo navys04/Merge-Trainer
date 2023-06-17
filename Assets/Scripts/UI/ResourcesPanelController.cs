@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,8 +19,36 @@ public class ResourcesPanelController : MonoBehaviour
         playerManager.OnWoodChanged += OnWoodChanged;
         playerManager.OnGoldChanged += OnGoldChanged;
         playerManager.OnDiamondsChanged += OnDiamondsChanged;
+
+        
     }
 
+    private void Start()
+    {
+        UpdateCurrentResources();
+    }
+
+    private void OnDisable()
+    {
+        PlayerManager playerManager = PlayerManager.Instance;
+        playerManager.OnFoodChanged -= OnFoodChanged;
+        playerManager.OnFeedChanged -= OnFeedChanged;
+        playerManager.OnWoodChanged -= OnWoodChanged;
+        playerManager.OnGoldChanged -= OnGoldChanged;
+        playerManager.OnDiamondsChanged -= OnDiamondsChanged;
+    }
+
+    private void UpdateCurrentResources()
+    {
+        PlayerManager playerManager = PlayerManager.Instance;
+
+        _foodText.text = playerManager.GetFood().ToString();
+        _feedText.text = playerManager.GetFeed().ToString();
+        _woodText.text = playerManager.GetWood().ToString();
+        _diamondsText.text = playerManager.GetDiamonds().ToString();
+        _goldText.text = playerManager.GetGold().ToString();
+    }
+    
     private void OnFoodChanged(float value)
     {
         _foodText.text = value.ToString();

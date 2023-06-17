@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerManager : SingletonBase<PlayerManager>
 {
-    private float _food = 50;
+    [SerializeField] private float _food = 50;
     private float _feed = 0;
     private float _wood = 0;
     private float _gold = 0;
@@ -21,8 +21,14 @@ public class PlayerManager : SingletonBase<PlayerManager>
     public float GetFood() => _food;
     public float GetFeed() => _feed;
     public float GetWood() => _wood;
+    public float GetGold() => _gold;
     public float GetDiamonds() => _diamonds;
-    
+
+    private void Start()
+    {
+        LoadPlayerManager();
+    }
+
     // As parameter returns new food value
     public float AddFood(float value)
     {
@@ -102,5 +108,38 @@ public class PlayerManager : SingletonBase<PlayerManager>
         _diamonds -= value;
         OnDiamondsChanged?.Invoke(_diamonds);
         return _diamonds;
+    }
+
+    private void LoadPlayerManager()
+    {
+        if (PlayerPrefs.HasKey(PlayerSave.FEED_KEY))
+        {
+            _feed = PlayerPrefs.GetFloat(PlayerSave.FEED_KEY);
+            OnFeedChanged?.Invoke(_feed);
+        }
+        
+        if (PlayerPrefs.HasKey(PlayerSave.FOOD_KEY))
+        {
+            _food = PlayerPrefs.GetFloat(PlayerSave.FOOD_KEY);
+            OnFoodChanged?.Invoke(_feed);
+        }
+        
+        if (PlayerPrefs.HasKey(PlayerSave.WOOD_KEY))
+        {
+            _wood = PlayerPrefs.GetFloat(PlayerSave.WOOD_KEY);
+            OnWoodChanged?.Invoke(_feed);
+        }
+        
+        if (PlayerPrefs.HasKey(PlayerSave.DIAMONDS_KEY))
+        {
+            _diamonds = PlayerPrefs.GetFloat(PlayerSave.DIAMONDS_KEY);
+            OnDiamondsChanged?.Invoke(_feed);
+        }
+        
+        if (PlayerPrefs.HasKey(PlayerSave.GOLD_KEY))
+        {
+            _gold = PlayerPrefs.GetFloat(PlayerSave.GOLD_KEY);
+            OnGoldChanged?.Invoke(_feed);
+        }
     }
 }
