@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef3d55e0ee117944922667553d702ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mergeReadyFX: {fileID: 19880592, guid: 3eb967bebaa6eb94ba9b9730e57ba98d, type: 3}
+  _onMergeFX: {fileID: 19804094, guid: 2aa1e7c21640d254492fa8035a6411e1, type: 3}
 --- !u!65 &9200206661649189335
 BoxCollider:
   m_ObjectHideFlags: 0

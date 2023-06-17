@@ -8,7 +8,7 @@ public class PanelManager : SingletonBase<PanelManager>
     [Header("Load/Save system")] 
     [SerializeField] private List<Unit> _allUnits = new List<Unit>();
     [SerializeField] private Enemy _enemy;
-    
+
     private readonly List<MergeablePanel> _panels = new List<MergeablePanel>();
 
     public List<MergeablePanel> GetPanels() => _panels;
@@ -51,6 +51,7 @@ public class PanelManager : SingletonBase<PanelManager>
         {
             if (PlayerPrefs.HasKey(i.ToString()))
             {
+                print("save save");
                 string value = PlayerPrefs.GetString(i.ToString());
                 string[] parameters = value.Split(",");
 

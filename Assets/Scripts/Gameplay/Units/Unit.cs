@@ -51,6 +51,8 @@ public class Unit : MergeableObject
     {
         base.Drag();
 
+        ChangeStateMergeReadyFX(true);
+        
         if (_haveRaycast)
         {
             if (_currentHit.collider.TryGetComponent(out SellPanel sellPanel))
@@ -73,10 +75,30 @@ public class Unit : MergeableObject
         }
     }
 
+    private void ChangeStateMergeReadyFX(bool isPlaying)
+    {
+        PanelManager panelManager = PanelManager.Instance;
+        foreach (var panel in panelManager.GetPanels())
+        {
+            if (!panel.IsPanelFree() && panel.GetObject() != this)
+            {
+                if (panel.GetObject().TryGetComponent(out Unit unit))
+                {
+                    if (unit.GetUnitType() == _unitType && unit.GetLevel() == GetLevel())
+                    {
+                        if (isPlaying) panel.ChangeMergeReadyFXState(isPlaying);
+                    }
+                }
+            }
+        }
+    }
+
     protected override void Drop()
     {
         base.Drop();
 
+        ChangeStateMergeReadyFX(false);
+        
         if (_sellPanel)
         {
             _sellPanel.Sell(this);

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">172525272587</string>
+  <string name="google_storage_bucket" translatable="false">megre-army.appspot.com</string>
+  <string name="project_id" translatable="false">megre-army</string>
+  <string name="google_api_key" translatable="false">AIzaSyCgpWdowgQWYfk6uIWk5oo2OnRdSZRRJ0o</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCgpWdowgQWYfk6uIWk5oo2OnRdSZRRJ0o</string>
+  <string name="google_app_id" translatable="false">1:172525272587:android:6e8fdfddd06bc60fde910e</string>
+  <string name="default_web_client_id" translatable="false">172525272587-ak34a64e1poi2l9tuc0disf7q9hgvim7.apps.googleusercontent.com</string>
+</resources>
