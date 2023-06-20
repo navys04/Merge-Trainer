@@ -19,6 +19,7 @@ public class PanelManager : SingletonBase<PanelManager>
         _panels.AddRange(panels);
         
         LoadPanels();
+        MergeGameManager.Instance.AddResourcesIdle();
     }
 
     public void AddPanel(MergeablePanel panel) => _panels.Add(panel);

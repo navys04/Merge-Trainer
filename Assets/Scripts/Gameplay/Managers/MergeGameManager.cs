@@ -173,4 +173,40 @@ public class MergeGameManager : SingletonBase<MergeGameManager>
             OnLevelUpdated?.Invoke(_currentLevel);
         }
     }
+
+    public void AddResourcesIdle()
+    {
+        DateTime lastDateTime = PlayerSave.Instance.LoadTime();
+        DateTime currentDateTime = DateTime.Now;
+        
+        if (lastDateTime.Year == 0) return;
+
+        TimeSpan timeSpan = currentDateTime.Subtract(lastDateTime);
+        int seconds = (int)timeSpan.TotalSeconds;
+
+        PlayerManager playerManager = PlayerManager.Instance;
+        List<MergeableObject> totalObjects = new List<MergeableObject>();
+        List<MergeablePanel> panels = PanelManager.Instance.GetPanels();
+
+        foreach (var panel in panels)
+        {
+            if (!panel.IsPanelFree())
+            {
+                totalObjects.Add(panel.GetObject());
+            }
+        }
+
+        TimeManager timeManager = TimeManager.Instance;
+
+
+        float foodToAdd = timeManager.foodPerSecond * totalObjects.Count * seconds;
+        float feedToAdd = timeManager.feedPerSecond * totalObjects.Count * seconds;
+        float woodToAdd = timeManager.woodPerSecond * totalObjects.Count * seconds;
+
+        playerManager.AddFood(foodToAdd);
+        playerManager.AddFeed(feedToAdd);
+        playerManager.AddWood(woodToAdd);
+        
+        Debug.Log(string.Format("added {0} food, {1} feed, {2} wood", foodToAdd, feedToAdd, woodToAdd));
+    }
 }

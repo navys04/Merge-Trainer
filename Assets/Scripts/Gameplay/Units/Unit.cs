@@ -10,9 +10,8 @@ public enum EUnitType
 
 public class Unit : MergeableObject
 {
-    [Header("Resources per second")] [SerializeField]
-    private float _foodPerTick;
-
+    [Header("Resources per second")] 
+    [SerializeField] private float _foodPerTick;
     [SerializeField] private float _feedPerTick;
     [SerializeField] private float _woodPerTick;
 
@@ -36,6 +35,10 @@ public class Unit : MergeableObject
     public float GetWoodCost() => _woodCost;
     public float GetFoodCost() => _foodCost;
     public float GetFeedCost() => _feedCost;
+
+    public float GetFoodPerTick() => _foodPerTick;
+    public float GetWoodPerTick() => _woodPerTick;
+    public float GetFeedPerTick() => _feedPerTick;
     
     public float GetGoldPrice() => _goldPrice;
     public EUnitType GetUnitType() => _unitType;

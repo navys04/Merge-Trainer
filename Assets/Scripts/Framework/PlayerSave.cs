@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -28,6 +29,9 @@ public class PlayerSave : SingletonBase<PlayerSave>
         
         // Panels save
         SavePanels();
+        
+        // Time save
+        SaveTime();
         
         PlayerPrefs.Save();
     }
@@ -74,6 +78,37 @@ public class PlayerSave : SingletonBase<PlayerSave>
             
             PlayerPrefs.SetString(i.ToString(), value);
         }
+    }
+
+    private void SaveTime()
+    {
+        // не лучший код, если проект нужно будет оптимизировать, посмотреть тут.
+        
+        TimeManager timeManager = TimeManager.Instance;
+        PlayerPrefs.SetInt("hour", timeManager.GetCurrentDateTime().Hour);
+        PlayerPrefs.SetInt("day", timeManager.GetCurrentDateTime().Day);
+        PlayerPrefs.SetInt("dayofyear", timeManager.GetCurrentDateTime().DayOfYear);
+        PlayerPrefs.SetInt("month", timeManager.GetCurrentDateTime().Month);
+        PlayerPrefs.SetInt("minutes", timeManager.GetCurrentDateTime().Minute);
+        PlayerPrefs.SetInt("seconds", timeManager.GetCurrentDateTime().Second);
+        PlayerPrefs.SetInt("milliseconds", timeManager.GetCurrentDateTime().Millisecond);
+        PlayerPrefs.SetInt("year", timeManager.GetCurrentDateTime().Year);
+    }
+
+    public DateTime LoadTime()
+    {
+        int hours = PlayerPrefs.GetInt("hour");
+        int minutes = PlayerPrefs.GetInt("minutes");
+        int seconds = PlayerPrefs.GetInt("seconds");
+        int milliseconds = PlayerPrefs.GetInt("milliseconds");
+
+        int day = PlayerPrefs.GetInt("day");
+        int dayOfYear = PlayerPrefs.GetInt("dayofyear");
+        int month = PlayerPrefs.GetInt("month");
+        int year = PlayerPrefs.GetInt("year");
+        
+        DateTime dateTime = new DateTime(year, month, day, hours, minutes, seconds, milliseconds);
+        return dateTime;
     }
 
     private void OnApplicationQuit()
